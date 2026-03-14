@@ -1,0 +1,681 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyouth Organization | Empowering Youth, Transforming Communities</title>
+<meta name="description" content="Joyouth is a youth-led NGO creating positive change through leadership, innovation, and collaboration.">
+<!-- Favicon using the provided logo -->
+<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+body { font-family: 'Inter', sans-serif; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+/* Premium Logo Reveal & 3D Float Animation */
+.logo-premium {
+animation: reveal-logo 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, float-premium 5s ease-in-out infinite 1.2s;
+opacity: 0;
+transform-style: preserve-3d;
+}
+@keyframes reveal-logo {
+0% { opacity: 0; transform: scale(0.8) translateY(20px) rotateX(10deg); filter: blur(8px); }
+100% { opacity: 1; transform: scale(1) translateY(0) rotateX(0deg); filter: blur(0); }
+}
+@keyframes float-premium {
+0% {
+transform: translateY(0px) scale(1);
+filter: drop-shadow(0 4px 6px rgba(255, 255, 255, 0.05)) drop-shadow(0 2px 4px rgba(99, 102, 241, 0.1));
+}
+50% {
+transform: translateY(-4px) scale(1.02);
+filter: drop-shadow(0 10px 15px rgba(255, 255, 255, 0.1)) drop-shadow(0 4px 8px rgba(99, 102, 241, 0.25)) brightness(1.05);
+}
+100% {
+transform: translateY(0px) scale(1);
+filter: drop-shadow(0 4px 6px rgba(255, 255, 255, 0.05)) drop-shadow(0 2px 4px rgba(99, 102, 241, 0.1));
+}
+}
+/* Hero Ken Burns Animation */
+.ken-burns {
+animation: zoomInOut 20s linear infinite alternate;
+transform-origin: center;
+}
+@keyframes zoomInOut {
+0% { transform: scale(1); }
+100% { transform: scale(1.12); }
+}
+/* Scroll Reveal Animation */
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+}
+/* Image overlay gradients */
+.image-overlay {
+background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40%, rgba(2, 6, 23, 0.2) 100%);
+}
+</style>
+
+</head>
+<body class="bg-slate-950 text-slate-300 antialiased selection:bg-indigo-500/30 overflow-x-hidden relative scroll-smooth">
+
+    <!-- Background glowing effects -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-600/10 blur-[120px]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-purple-600/10 blur-[120px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/[0.08]">
+        <div class="flex h-20 max-w-7xl mr-auto ml-auto pr-6 pl-6 items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 flex items-center justify-center relative z-10 perspective-1000">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dc6f95cf-88e4-4e33-8cb9-6ba60bd2c7a3_320w.png?w=800&amp;q=80" alt="Joyouth Logo" class="logo-premium w-full h-full object-contain">
+                </div>
+                <span class="text-xl tracking-tight font-normal text-white">Joyouth</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="text-base text-slate-400 hover:text-white transition-colors">About</a>
+                <a href="#services" class="text-base text-slate-400 hover:text-white transition-colors">Initiatives</a>
+                <a href="#gallery" class="text-base text-slate-400 hover:text-white transition-colors">Gallery</a>
+                <a href="#conference" class="text-base text-slate-400 hover:text-white transition-colors">Conference</a>
+                <a href="#volunteer" class="text-base text-slate-400 hover:text-white transition-colors">Volunteer</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#donate" class="hidden md:inline-flex h-10 items-center justify-center px-6 rounded-full bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-colors">Donate</a>
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 -mr-2 transition-colors">
+                    <iconify-icon icon="solar:hamburger-menu-linear" id="menu-icon" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl transition-all">
+            <div class="flex flex-col px-6 py-8 gap-6">
+                <a href="#about" class="mobile-link text-lg text-slate-300 hover:text-white font-normal transition-colors">About</a>
+                <a href="#services" class="mobile-link text-lg text-slate-300 hover:text-white font-normal transition-colors">Initiatives</a>
+                <a href="#gallery" class="mobile-link text-lg text-slate-300 hover:text-white font-normal transition-colors">Gallery</a>
+                <a href="#conference" class="mobile-link text-lg text-slate-300 hover:text-white font-normal transition-colors">Conference</a>
+                <a href="#volunteer" class="mobile-link text-lg text-slate-300 hover:text-white font-normal transition-colors">Volunteer</a>
+                <a href="#donate" class="mobile-link h-12 w-full mt-4 inline-flex items-center justify-center rounded-xl bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-colors">Make a Donation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="md:pt-52 md:pb-32 overflow-hidden pt-40 pr-6 pb-24 pl-6 relative min-h-[90vh] flex items-center justify-center">
+        <!-- Hero Background Slider -->
+        <div class="absolute inset-0 z-0 bg-slate-950">
+            <div class="absolute inset-0 bg-slate-950/40 z-10 mix-blend-multiply"></div>
+            <div class="image-overlay z-10 absolute top-0 right-0 bottom-0 left-0"></div>
+            
+            <img src="https://i.pinimg.com/1200x/ff/85/41/ff85411d52ee81c3e5ea6570298af522.jpg" alt="Youth community" class="hero-slide absolute inset-0 w-full h-full object-cover ken-burns transition-opacity duration-1000 opacity-100 z-0">
+            <img src="https://i.pinimg.com/736x/ab/62/de/ab62ded6fb63594397bf43cf4186795a.jpg" alt="Conference" class="hero-slide absolute inset-0 w-full h-full object-cover ken-burns transition-opacity duration-1000 opacity-0 z-0">
+            <img src="https://i.pinimg.com/1200x/d4/d4/ae/d4d4ae05805c59477bddb3351f23dc49.jpg" alt="Workshop" class="hero-slide absolute inset-0 w-full h-full object-cover ken-burns transition-opacity duration-1000 opacity-0 z-0">
+        </div>
+
+        <div class="flex flex-col text-center max-w-7xl z-20 mr-auto ml-auto relative items-center reveal active">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 backdrop-blur-md">
+                <span class="flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                <span class="text-sm md:text-base text-slate-300">Empowering Youth, Transforming Communities</span>
+            </div>
+            <h1 class="md:text-7xl lg:text-8xl leading-tight text-5xl font-normal text-white tracking-tight max-w-5xl mb-8 drop-shadow-2xl">Igniting the potentials of the <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]">next generation.</span></h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-12 leading-relaxed drop-shadow-lg">
+                Join our youth-led movement driving social change, fostering innovation, and building resilient communities through leadership and collaborative action.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#volunteer" class="w-full sm:w-auto h-12 inline-flex items-center justify-center gap-2 px-8 rounded-full bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]">
+                    Join Us
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-lg" style="stroke-width: 1.5;"></iconify-icon>
+                </a>
+                <a href="#donate" class="w-full sm:w-auto h-12 inline-flex items-center justify-center gap-2 px-8 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/[0.2] text-white text-base font-normal hover:bg-white/[0.1] transition-colors">
+                    Make a Donation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative border-t border-white/[0.05]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24 reveal">
+                <div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden aspect-[4/3] border border-white/[0.05] group shadow-2xl">
+                    <img src="https://i.pinimg.com/736x/5a/d5/b0/5ad5b0c4c856fb6ec23b32669c073f55.jpg" alt="Team collaboration" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-4 rounded-xl bg-white/[0.05] backdrop-blur-md border border-white/[0.1]">
+                            <p class="text-base font-normal text-white">"Empowering minds to build a sustainable future."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-6">Built on experience, driven by innovation.</h2>
+                    <p class="text-base md:text-lg text-slate-400 mb-6 leading-relaxed">
+                        JoYouth is a youth-led NGO founded on challenging experiences and observation. We aim to create positive change through leadership, innovation, and collaboration. We offer workshops, community projects, mentorship, and support initiatives to equip youth with the skills to reach their full potential.
+                    </p>
+                    <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-8">
+                        <strong class="text-white font-normal">Our Mission:</strong> To equip and mobilize youth to drive social change, foster innovation, and build resilient communities through leadership, education, and collaborative action.
+                    </p>
+                    
+                    <!-- Founder Card Mini -->
+                    <div class="inline-flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="w-14 h-14 rounded-full p-[2px] bg-gradient-to-tr from-indigo-500 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.4)] flex items-center justify-center overflow-hidden relative group shrink-0">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900">
+                                <img src="assets/images/founder-profile.webp" alt="Akanzagisi Norbert" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg tracking-tight font-normal text-white">Akanzagisi Norbert</h3>
+                            <p class="text-sm text-indigo-400">Founder &amp; Visionary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-100">
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-4xl md:text-5xl tracking-tight font-normal text-white mb-2 relative z-10">5,000+</div>
+                    <div class="text-base text-slate-400 relative z-10">Youth Empowered</div>
+                </div>
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-4xl md:text-5xl tracking-tight font-normal text-white mb-2 relative z-10">120+</div>
+                    <div class="text-base text-slate-400 relative z-10">Community Projects</div>
+                </div>
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="text-4xl md:text-5xl tracking-tight font-normal text-white mb-2 relative z-10">50+</div>
+                    <div class="text-base text-slate-400 relative z-10">Active Mentors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6 relative border-t border-white/[0.05]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-4">Our Core Initiatives</h2>
+                <p class="text-base md:text-lg text-slate-400 max-w-2xl">Comprehensive programs designed to nurture talent, build leadership skills, and create real-world impact.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="group p-8 rounded-2xl bg-slate-900 border border-white/[0.08] hover:border-indigo-500/50 transition-all duration-300 relative overflow-hidden reveal">
+                    <img src="https://i.pinimg.com/1200x/d4/d4/ae/d4d4ae05805c59477bddb3351f23dc49.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-30 transition-opacity duration-500 mix-blend-screen" alt="Workshops">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/20"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                            <iconify-icon icon="solar:book-2-linear" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white mb-3">Workshops &amp; Training</h3>
+                        <p class="text-base text-slate-400 mb-12 line-clamp-3">Leadership and skills development programs, including our flagship Annual Technocrats Conference.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm text-white font-normal group-hover:text-indigo-400 transition-colors absolute bottom-8 left-8">
+                            Learn more <iconify-icon icon="solar:arrow-right-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-8 rounded-2xl bg-slate-900 border border-white/[0.08] hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden reveal delay-75">
+                    <img src="https://i.pinimg.com/1200x/f1/6f/05/f16f05ae4d46ec681e62c208057abffc.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-30 transition-opacity duration-500 mix-blend-screen" alt="Mentorship">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/20"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                            <iconify-icon icon="solar:users-group-rounded-linear" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white mb-3">Mentorship</h3>
+                        <p class="text-base text-slate-400 mb-12 line-clamp-3">Connecting ambitious youth with experienced professionals to guide their personal and career growth.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm text-white font-normal group-hover:text-purple-400 transition-colors absolute bottom-8 left-8">
+                            Learn more <iconify-icon icon="solar:arrow-right-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-8 rounded-2xl bg-slate-900 border border-white/[0.08] hover:border-emerald-500/50 transition-all duration-300 relative overflow-hidden reveal delay-150">
+                    <img src="https://i.pinimg.com/1200x/52/bb/42/52bb427da7cf7fec99beb21c82a55388.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-30 transition-opacity duration-500 mix-blend-screen" alt="Community">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/20"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 text-emerald-400 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                            <iconify-icon icon="solar:earth-linear" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white mb-3">Community Projects</h3>
+                        <p class="text-base text-slate-400 mb-12 line-clamp-3">Hands-on impact through cleanups, health drives, and targeted community outreach initiatives.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm text-white font-normal group-hover:text-emerald-400 transition-colors absolute bottom-8 left-8">
+                            Learn more <iconify-icon icon="solar:arrow-right-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group p-8 rounded-2xl bg-slate-900 border border-white/[0.08] hover:border-rose-500/50 transition-all duration-300 relative overflow-hidden reveal delay-200">
+                    <img src="https://i.pinimg.com/736x/8a/c5/a9/8ac5a9babd0f1bc7b120fe5496b18fbb.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-30 transition-opacity duration-500 mix-blend-screen" alt="Networking">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/20"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center mb-6 text-rose-400 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                            <iconify-icon icon="solar:network-linear" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white mb-3">Networking Events</h3>
+                        <p class="text-base text-slate-400 mb-12 line-clamp-3">Exclusive events designed to connect youth with opportunities, leaders, and peers.</p>
+                        <a href="#" class="inline-flex items-center gap-2 text-sm text-white font-normal group-hover:text-rose-400 transition-colors absolute bottom-8 left-8">
+                            Learn more <iconify-icon icon="solar:arrow-right-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Gallery Section -->
+    <section id="gallery" class="py-24 px-6 relative border-t border-white/[0.05]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 reveal">
+                <div class="">
+                    <h2 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-4">Impact in Action</h2>
+                    <p class="text-base md:text-lg text-slate-400 max-w-2xl">A visual journey of our workshops, community projects, and leadership summits.</p>
+                </div>
+                <a href="#" class="inline-flex items-center gap-2 text-sm text-slate-300 font-normal hover:text-white transition-colors">
+                    View full gallery <iconify-icon icon="solar:arrow-right-linear" style="stroke-width: 1.5;"></iconify-icon>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+                <!-- Large Feature Image -->
+                <div class="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal">
+                    <img src="https://i.pinimg.com/1200x/ff/85/41/ff85411d52ee81c3e5ea6570298af522.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Community Event">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="inline-block px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-normal mb-2 border border-indigo-500/30 backdrop-blur-md">Summit 2025</span>
+                        <h3 class="text-xl tracking-tight font-normal text-white">Youth Leadership Summit</h3>
+                    </div>
+                </div>
+                
+                <!-- Standard Images -->
+                <div class="rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-75">
+                    <img src="https://i.pinimg.com/736x/ab/62/de/ab62ded6fb63594397bf43cf4186795a.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Networking">
+                    <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-100">
+                    <img src="https://i.pinimg.com/1200x/d4/d4/ae/d4d4ae05805c59477bddb3351f23dc49.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Workshop Session">
+                    <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
+                </div>
+
+                <div class="md:col-span-2 rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-150">
+                    <img src="https://i.pinimg.com/736x/22/6c/7b/226c7b901b8d92b3f3890e8c3878dc01.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Conference Panel">
+                    <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-sm font-normal text-white drop-shadow-md">Panel Discussions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference Highlights -->
+    <section id="conference" class="py-24 px-6 relative border-t border-white/[0.05]">
+        <div class="absolute inset-0 bg-gradient-to-b from-indigo-900/10 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto reveal">
+            <div class="p-1 rounded-3xl bg-gradient-to-r from-indigo-500/30 to-purple-500/30 shadow-[0_0_40px_rgba(99,102,241,0.1)]">
+                <div class="bg-slate-950 rounded-[23px] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                    
+                    <div class="flex-1 relative z-10">
+                        <div class="inline-block px-3 py-1 rounded-md bg-indigo-500/20 text-indigo-300 text-xs font-normal mb-6 border border-indigo-500/30 uppercase tracking-widest">Flagship Event</div>
+                        <h2 class="text-3xl md:text-5xl tracking-tight font-normal text-white mb-6">Annual Technocrats Conference</h2>
+                        <p class="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
+                            A convergence of young minds, industry experts, and visionary leaders. Join us for intensive workshops, keynote sessions, and unparalleled networking opportunities designed to shape the next generation of technological and social innovators.
+                        </p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <button class="h-12 inline-flex items-center justify-center gap-2 px-8 rounded-full bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all">
+                                Register Now
+                            </button>
+                            <div class="flex items-center gap-4 text-base font-normal text-white bg-white/5 border border-white/10 px-6 h-12 rounded-full">
+                                <span>14</span> <span class="text-slate-500 text-xs uppercase tracking-wider">Days</span> : 
+                                <span>08</span> <span class="text-slate-500 text-xs uppercase tracking-wider">Hrs</span> : 
+                                <span class="text-indigo-400 animate-pulse">45</span> <span class="text-slate-500 text-xs uppercase tracking-wider">Mins</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 w-full relative z-10">
+                        <div class="aspect-video rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center overflow-hidden relative group cursor-pointer shadow-2xl">
+                            <img src="https://i.pinimg.com/1200x/52/bb/42/52bb427da7cf7fec99beb21c82a55388.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 group-hover:scale-105" alt="Conference Highlight">
+                            <iconify-icon icon="solar:play-circle-linear" class="text-6xl text-white/80 group-hover:text-white group-hover:scale-110 transition-all z-10" style="stroke-width: 1.5;"></iconify-icon>
+                            <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 mix-blend-overlay"></div>
+                            <span class="absolute bottom-4 left-4 text-xs tracking-wider uppercase text-white/80 backdrop-blur-sm px-2 py-1 rounded border border-white/10">Watch 2025 Highlights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="py-24 px-6 border-t border-white/[0.05] relative overflow-hidden">
+        <!-- Abstract shape -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-500/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-4">Become a Volunteer</h2>
+                <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto">Your time and skills can drive real change. Join our dedicated team of volunteers and help us impact more lives.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-12">
+                <!-- Roles -->
+                <div class="lg:col-span-2 space-y-4 reveal delay-100">
+                    <h3 class="text-xl tracking-tight font-normal text-white mb-6">Open Roles</h3>
+                    
+                    <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <iconify-icon icon="solar:calendar-linear" class="text-xl text-indigo-400"></iconify-icon>
+                            <h4 class="text-base font-normal text-white">Event Coordination</h4>
+                        </div>
+                        <p class="text-sm text-slate-500">Help plan, organize, and execute our workshops and annual conferences.</p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-purple-500/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <iconify-icon icon="solar:share-linear" class="text-xl text-purple-400"></iconify-icon>
+                            <h4 class="text-base font-normal text-white">Social Media Management</h4>
+                        </div>
+                        <p class="text-sm text-slate-500">Manage our online presence and engage with our digital community.</p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-pink-500/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <iconify-icon icon="solar:pen-linear" class="text-xl text-pink-400"></iconify-icon>
+                            <h4 class="text-base font-normal text-white">Content Creation</h4>
+                        </div>
+                        <p class="text-sm text-slate-500">Create compelling written and visual content for our campaigns.</p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-amber-500/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-2">
+                            <iconify-icon icon="solar:megaphone-linear" class="text-xl text-amber-400"></iconify-icon>
+                            <h4 class="text-base font-normal text-white">Community Engagement</h4>
+                        </div>
+                        <p class="text-sm text-slate-500">Lead outreach programs and build relationships with local stakeholders.</p>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:col-span-3 reveal delay-200">
+                    <form class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
+                        <!-- Decorative glow behind form -->
+                        <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none"></div>
+
+                        <div class="grid md:grid-cols-2 gap-6 relative z-10">
+                            <div class="space-y-2">
+                                <label class="text-sm font-normal text-slate-400">Full Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-normal text-slate-400">Phone Number</label>
+                                <input type="tel" placeholder="+233..." class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 relative z-10">
+                            <label class="text-sm font-normal text-slate-400">Email Address</label>
+                            <input type="email" placeholder="john@example.com" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                        </div>
+
+                        <div class="space-y-2 relative z-10">
+                            <label class="text-sm font-normal text-slate-400">Primary Skill / Interest</label>
+                            <div class="relative">
+                                <select class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
+                                    <option value="" disabled="" selected="" class="text-slate-500">Select an area of interest</option>
+                                    <option value="events" class="bg-slate-900">Event Coordination</option>
+                                    <option value="social" class="bg-slate-900">Social Media</option>
+                                    <option value="content" class="bg-slate-900">Content Creation</option>
+                                    <option value="outreach" class="bg-slate-900">Community Outreach</option>
+                                    <option value="other" class="bg-slate-900">Other Skills</option>
+                                </select>
+                                <iconify-icon icon="solar:alt-arrow-down-linear" class="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-slate-400 pointer-events-none"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 relative z-10">
+                            <label class="text-sm font-normal text-slate-400">Availability</label>
+                            <div class="flex flex-wrap gap-6">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="relative flex items-center justify-center">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <div class="w-4 h-4 border border-white/20 rounded bg-white/5 peer-checked:bg-indigo-500 peer-checked:border-indigo-500 transition-all"></div>
+                                        <svg class="absolute w-2.5 h-2.5 text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <span class="text-sm text-slate-300 group-hover:text-white transition-colors">Weekdays</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <div class="relative flex items-center justify-center">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <div class="w-4 h-4 border border-white/20 rounded bg-white/5 peer-checked:bg-indigo-500 peer-checked:border-indigo-500 transition-all"></div>
+                                        <svg class="absolute w-2.5 h-2.5 text-white opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    </div>
+                                    <span class="text-sm text-slate-300 group-hover:text-white transition-colors">Weekends</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 relative z-10">
+                            <label class="text-sm font-normal text-slate-400">Motivation</label>
+                            <textarea rows="3" placeholder="Why do you want to join JoYouth?" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="h-12 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all mt-2 relative z-10">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="py-24 px-6 relative overflow-hidden border-t border-white/[0.05]">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl tracking-tight font-normal text-white mb-4">Support Our Mission</h2>
+                <p class="text-base md:text-lg text-slate-400">Your contributions enable us to run workshops, execute community projects, and empower more youth across the nation.</p>
+                
+                <div class="max-w-md mx-auto mt-8">
+                    <div class="flex justify-between text-xs tracking-wider uppercase text-slate-400 mb-2">
+                        <span class="">Fundraising Goal 2026</span>
+                        <span class="text-indigo-400 font-normal">65% Reached</span>
+                    </div>
+                    <div class="h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 w-[65%] rounded-full relative">
+                            <div class="absolute inset-0 bg-white/20 animate-[pulse_2s_infinite]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 reveal delay-100">
+                <!-- Mobile Money -->
+                <div class="p-8 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/[0.08] hover:border-white/[0.15] transition-colors shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500">
+                            <iconify-icon icon="solar:smartphone-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white">Mobile Money</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                            <p class="text-xs text-slate-500 mb-1 uppercase tracking-wider">MTN Mobile Money</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-normal text-white tracking-wider">059 828 6081</span>
+                                <button class="p-2 rounded-md bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 transition-colors" title="Copy Number">
+                                    <iconify-icon icon="solar:copy-linear" class="text-lg"></iconify-icon>
+                                </button>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Name: Akanzagisi Norbert</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Transfer -->
+                <div class="p-8 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/[0.08] hover:border-white/[0.15] transition-colors shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                            <iconify-icon icon="solar:buildings-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl tracking-tight font-normal text-white">Bank Transfer</h3>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex flex-col gap-1 border-b border-white/[0.05] pb-4">
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Bank Name</span>
+                            <span class="text-sm font-normal text-white">Ghana Commercial Bank (GCB)</span>
+                        </div>
+                        <div class="flex flex-col gap-1 border-b border-white/[0.05] pb-4">
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Account Name</span>
+                            <span class="text-sm font-normal text-white">Akanzagisi Norbert</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs text-slate-500 uppercase tracking-wider">Account Number</span>
+                            <div class="flex items-center justify-between mt-1">
+                                <span class="text-lg font-normal text-white tracking-wider">9021010042015</span>
+                                <button class="p-2 rounded-md bg-white/[0.05] hover:bg-white/[0.1] text-slate-300 transition-colors" title="Copy Number">
+                                    <iconify-icon icon="solar:copy-linear" class="text-lg"></iconify-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-white/[0.08] bg-slate-950 border-t pt-16 pr-6 pb-8 pl-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 flex items-center justify-center perspective-1000">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/05eeb4dd-5bb8-4c50-af6f-0187267388c6_320w.png?w=800&amp;q=80" alt="Joyouth Logo" class="logo-premium w-full h-full object-cover bg-center">
+                        </div>
+                        <span class="text-xl tracking-tight font-normal text-white">Joyouth</span>
+                    </a>
+                    <p class="text-sm text-slate-400 max-w-sm mb-6 leading-relaxed">Empowering Youth, Transforming Communities through leadership, education, and collaborative action.</p>
+                </div>
+                
+                <div class="">
+                    <h4 class="text-sm font-normal text-white mb-6 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li class=""><a href="#about" class="text-sm text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-sm text-slate-400 hover:text-white transition-colors">Our Programs</a></li>
+                        <li><a href="#gallery" class="text-sm text-slate-400 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="#volunteer" class="text-sm text-slate-400 hover:text-white transition-colors">Volunteer</a></li>
+                        <li><a href="#donate" class="text-sm text-slate-400 hover:text-white transition-colors">Donate</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-normal text-white mb-6 uppercase tracking-wider">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/[0.05] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-slate-500">© 2026 Joyouth Organization. All Rights Reserved.</p>
+                <p class="text-xs text-slate-600 flex items-center gap-1">
+                    Made with <iconify-icon icon="solar:heart-linear" class="text-red-500 text-sm"></iconify-icon> in Ghana
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://chat.whatsapp.com/FZkk23I4cEz8s5SBrYklet?mode=gi_t" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-green-500/20 backdrop-blur-md border border-green-500/50 text-green-400 flex items-center justify-center shadow-[0_4px_30px_rgba(34,197,94,0.2)] hover:scale-110 hover:bg-green-500 hover:text-white transition-all z-50 group">
+        <iconify-icon icon="solar:chat-round-dots-linear" class="text-2xl" style="stroke-width: 1.5;"></iconify-icon>
+        <span class="absolute right-full mr-4 bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-white/10 pointer-events-none shadow-xl">Join Community</span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('icon', 'solar:close-circle-linear');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('icon', 'solar:hamburger-menu-linear');
+            }
+        }
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            });
+        });
+
+        // Hero Slider Logic (Smooth Fade 6s)
+        const slides = document.querySelectorAll('.hero-slide');
+        if(slides.length > 0) {
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+                
+                currentSlide = (currentSlide + 1) % slides.length;
+                
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+            }, 6000); 
+        }
+
+        // Scroll Reveal Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+</body></html>
