@@ -9,6 +9,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
 <style>
 body { font-family: 'Inter', sans-serif; }
 ::-webkit-scrollbar { width: 8px; }
@@ -343,9 +344,9 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                             A convergence of young minds, industry experts, and visionary leaders. Join us for intensive workshops, keynote sessions, and unparalleled networking opportunities designed to shape the next generation of technological and social innovators.
                         </p>
                         <div class="flex flex-wrap gap-4 items-center">
-                            <button class="h-12 inline-flex items-center justify-center gap-2 px-8 rounded-full bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all">
+                            <a href="#volunteer" class="h-12 inline-flex items-center justify-center gap-2 px-8 rounded-full bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all">
                                 Register Now
-                            </button>
+                            </a>
                             <div class="flex items-center gap-4 text-base font-normal text-white bg-white/5 border border-white/10 px-6 h-12 rounded-full">
                                 <span>14</span> <span class="text-slate-500 text-xs uppercase tracking-wider">Days</span> : 
                                 <span>08</span> <span class="text-slate-500 text-xs uppercase tracking-wider">Hrs</span> : 
@@ -361,6 +362,14 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                             <span class="absolute bottom-4 left-4 text-xs tracking-wider uppercase text-white/80 backdrop-blur-sm px-2 py-1 rounded border border-white/10">Watch 2025 Highlights</span>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Conference Members -->
+            <div class="mt-16">
+                <h3 class="text-2xl md:text-3xl tracking-tight font-normal text-white mb-8 text-center">Conference Members</h3>
+                <div id="conference-members-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Members will be dynamically added here -->
                 </div>
             </div>
         </div>
@@ -417,30 +426,30 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
 
                 <!-- Form -->
                 <div class="lg:col-span-3 reveal delay-200">
-                    <form class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
+                    <form id="volunteer-form" class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
                         <!-- Decorative glow behind form -->
                         <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none"></div>
 
                         <div class="grid md:grid-cols-2 gap-6 relative z-10">
                             <div class="space-y-2">
                                 <label class="text-sm font-normal text-slate-400">Full Name</label>
-                                <input type="text" placeholder="John Doe" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                                <input type="text" name="name" placeholder="John Doe" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-normal text-slate-400">Phone Number</label>
-                                <input type="tel" placeholder="+233..." class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                                <input type="tel" name="phone" placeholder="+233..." class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
                             </div>
                         </div>
 
                         <div class="space-y-2 relative z-10">
                             <label class="text-sm font-normal text-slate-400">Email Address</label>
-                            <input type="email" placeholder="john@example.com" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
+                            <input type="email" name="email" placeholder="john@example.com" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
                         </div>
 
                         <div class="space-y-2 relative z-10">
                             <label class="text-sm font-normal text-slate-400">Primary Skill / Interest</label>
                             <div class="relative">
-                                <select class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
+                                <select name="role" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
                                     <option value="" disabled="" selected="" class="text-slate-500">Select an area of interest</option>
                                     <option value="events" class="bg-slate-900">Event Coordination</option>
                                     <option value="social" class="bg-slate-900">Social Media</option>
@@ -476,7 +485,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
 
                         <div class="space-y-2 relative z-10">
                             <label class="text-sm font-normal text-slate-400">Motivation</label>
-                            <textarea rows="3" placeholder="Why do you want to join JoYouth?" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"></textarea>
+                            <textarea name="motivation" rows="3" placeholder="Why do you want to join JoYouth?" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"></textarea>
                         </div>
 
                         <button type="submit" class="h-12 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-white text-slate-950 text-base font-normal hover:bg-slate-200 transition-all mt-2 relative z-10">
@@ -676,6 +685,99 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Initialize EmailJS
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key from https://www.emailjs.com/
+
+        // Load and display members
+        function loadMembers() {
+            const members = JSON.parse(localStorage.getItem('joyouth_members') || '[]');
+            const container = document.getElementById('conference-members-container');
+            container.innerHTML = '';
+
+            const roles = {};
+            members.forEach(member => {
+                if (!roles[member.role]) roles[member.role] = [];
+                roles[member.role].push(member);
+            });
+
+            Object.keys(roles).forEach(role => {
+                const roleDiv = document.createElement('div');
+                roleDiv.className = 'col-span-full mb-8';
+                roleDiv.innerHTML = `
+                    <h4 class="text-xl tracking-tight font-normal text-white mb-4">${role}</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${roles[role].map(member => `
+                            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-colors">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-lg font-normal text-white">${member.name}</h5>
+                                        <p class="text-sm text-slate-400">${member.role}</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-sm text-slate-500"><iconify-icon icon="solar:phone-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.phone}</p>
+                                    <p class="text-sm text-slate-500"><iconify-icon icon="solar:letter-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.email}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(roleDiv);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('volunteer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                role: this.querySelector('select').options[this.querySelector('select').selectedIndex].text,
+                availability: Array.from(this.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.nextElementSibling.textContent).join(', '),
+                motivation: formData.get('motivation')
+            };
+
+            // Send email
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { // Replace with your EmailJS service and template IDs
+                to_email: 'founder@example.com', // Replace with founder's email
+                from_name: data.name,
+                from_email: data.email,
+                subject: 'New Volunteer Application',
+                message: `
+Name: ${data.name}
+Phone: ${data.phone}
+Email: ${data.email}
+Role: ${data.role}
+Availability: ${data.availability}
+Motivation: ${data.motivation}
+                `
+            }).then(() => {
+                alert('Application submitted successfully! Email sent to founder.');
+            }).catch(() => {
+                alert('Application submitted, but email failed. Please contact directly.');
+            });
+
+            // Store in localStorage
+            const members = JSON.parse(localStorage.getItem('joyouth_members') || '[]');
+            members.push(data);
+            localStorage.setItem('joyouth_members', JSON.stringify(members));
+
+            // Reload members
+            loadMembers();
+
+            // Reset form
+            this.reset();
+        });
+
+        // Load members on page load
+        loadMembers();
     </script>
 
 </body></html>
