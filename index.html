@@ -63,6 +63,28 @@ transform: translateY(0);
 .image-overlay {
 background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40%, rgba(2, 6, 23, 0.2) 100%);
 }
+.new-member-highlight {
+    animation: glow 2s ease-out;
+    border-color: rgba(99, 102, 241, 0.7); /* Brighter indigo border */
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+@keyframes glow {
+    from {
+        border-color: rgba(99, 102, 241, 0.7);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+    }
+    to {
+        border-color: rgba(99, 102, 241, 0);
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+/* Card hover animation */
+#conference-members-container .p-6:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.076);
+}
 </style>
 
 </head>
@@ -147,7 +169,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
     <!-- About Section -->
     <section id="about" class="py-24 px-6 relative border-t border-white/[0.05]">
         <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24 reveal">
                 <div class="order-2 lg:order-1 relative rounded-3xl overflow-hidden aspect-[4/3] border border-white/[0.05] group shadow-2xl">
                     <img src="https://i.pinimg.com/736x/5a/d5/b0/5ad5b0c4c856fb6ec23b32669c073f55.jpg" alt="Team collaboration" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
@@ -296,9 +318,9 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 </a>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Large Feature Image -->
-                <div class="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal">
                     <img src="https://i.pinimg.com/1200x/ff/85/41/ff85411d52ee81c3e5ea6570298af522.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Community Event">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 right-6">
@@ -308,17 +330,17 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 </div>
                 
                 <!-- Standard Images -->
-                <div class="rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-75">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-75">
                     <img src="https://i.pinimg.com/736x/ab/62/de/ab62ded6fb63594397bf43cf4186795a.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Networking">
                     <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
 
-                <div class="rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-100">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-100">
                     <img src="https://i.pinimg.com/1200x/d4/d4/ae/d4d4ae05805c59477bddb3351f23dc49.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Workshop Session">
                     <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
                 </div>
 
-                <div class="md:col-span-2 rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-150">
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal delay-150">
                     <img src="https://i.pinimg.com/736x/22/6c/7b/226c7b901b8d92b3f3890e8c3878dc01.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Conference Panel">
                     <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
                     <div class="absolute bottom-4 left-4">
@@ -386,7 +408,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto">Your time and skills can drive real change. Join our dedicated team of volunteers and help us impact more lives.</p>
             </div>
 
-            <div class="grid lg:grid-cols-5 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
                 <!-- Roles -->
                 <div class="lg:col-span-2 space-y-4 reveal delay-100">
                     <h3 class="text-xl tracking-tight font-normal text-white mb-6">Open Roles</h3>
@@ -426,6 +448,12 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
 
                 <!-- Form -->
                 <div class="lg:col-span-3 reveal delay-200">
+                    <div id="success-message" class="hidden p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+                        <span class="font-medium">Success!</span> Your application has been submitted successfully.
+                    </div>
+                    <div id="error-message" class="hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                        <span class="font-medium">Error!</span> There was a problem submitting your application. Please try again later.
+                    </div>
                     <form id="volunteer-form" class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
                         <!-- Decorative glow behind form -->
                         <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none"></div>
@@ -449,8 +477,8 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                         <div class="space-y-2 relative z-10">
                             <label class="text-sm font-normal text-slate-400">Primary Skill / Interest</label>
                             <div class="relative">
-                                <select name="role" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
-                                    <option value="" disabled="" selected="" class="text-slate-500">Select an area of interest</option>
+                                <select name="role" defaultValue="" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
+                                    <option value="" disabled class="text-slate-500">Select an area of interest</option>
                                     <option value="events" class="bg-slate-900">Event Coordination</option>
                                     <option value="social" class="bg-slate-900">Social Media</option>
                                     <option value="content" class="bg-slate-900">Content Creation</option>
@@ -690,44 +718,65 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
         emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key from https://www.emailjs.com/
 
         // Load and display members
-        function loadMembers() {
+        function loadMembers(highlightId) {
             const members = JSON.parse(localStorage.getItem('joyouth_members') || '[]');
             const container = document.getElementById('conference-members-container');
             container.innerHTML = '';
 
-            const roles = {};
+            const roles = {
+                "Event Coordination": [],
+                "Social Media": [],
+                "Content Creation": [],
+                "Community Outreach": [],
+                "Other Skills": []
+            };
+
             members.forEach(member => {
-                if (!roles[member.role]) roles[member.role] = [];
-                roles[member.role].push(member);
+                if (roles[member.role]) {
+                    roles[member.role].push(member);
+                }
             });
 
             Object.keys(roles).forEach(role => {
-                const roleDiv = document.createElement('div');
-                roleDiv.className = 'col-span-full mb-8';
-                roleDiv.innerHTML = `
-                    <h4 class="text-xl tracking-tight font-normal text-white mb-4">${role}</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${roles[role].map(member => `
-                            <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-colors">
-                                <div class="flex items-center gap-4 mb-4">
-                                    <div class="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                if (roles[role].length > 0) {
+                    const roleDiv = document.createElement('div');
+                    roleDiv.className = 'role-container col-span-full mb-8';
+                    let membersHtml = roles[role].map(member => `
+                                <div id="${member.id}" class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 ${highlightId === member.id ? 'new-member-highlight' : ''}">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                                            <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-lg font-normal text-white">${member.name}</h5>
+                                            <p class="text-sm text-slate-400">${member.role}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h5 class="text-lg font-normal text-white">${member.name}</h5>
-                                        <p class="text-sm text-slate-400">${member.role}</p>
+                                    <div class="space-y-2">
+                                        <p class="text-sm text-slate-500"><iconify-icon icon="solar:phone-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.phone}</p>
+                                        <p class="text-sm text-slate-500"><iconify-icon icon="solar:letter-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.email}</p>
                                     </div>
                                 </div>
-                                <div class="space-y-2">
-                                    <p class="text-sm text-slate-500"><iconify-icon icon="solar:phone-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.phone}</p>
-                                    <p class="text-sm text-slate-500"><iconify-icon icon="solar:letter-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.email}</p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                container.appendChild(roleDiv);
+                            `).join('');
+                    
+                    roleDiv.innerHTML = `
+                        <h4 class="text-xl tracking-tight font-normal text-white mb-4">${role}</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${membersHtml}
+                        </div>
+                    `;
+                    container.appendChild(roleDiv);
+                }
             });
+
+            if (highlightId) {
+                const newCard = document.getElementById(highlightId);
+                if (newCard) {
+                    setTimeout(() => {
+                        newCard.classList.remove('new-member-highlight');
+                    }, 3000); // Highlight for 3 seconds
+                }
+            }
         }
 
         // Handle form submission
@@ -736,6 +785,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
             
             const formData = new FormData(this);
             const data = {
+                id: `member-${new Date().getTime()}`, // Unique ID for highlighting
                 name: formData.get('name'),
                 phone: formData.get('phone'),
                 email: formData.get('email'),
@@ -744,36 +794,52 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 motivation: formData.get('motivation')
             };
 
+            const successMessage = document.getElementById('success-message');
+
             // Send email
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { // Replace with your EmailJS service and template IDs
-                to_email: 'founder@example.com', // Replace with founder's email
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                to_email_1: 'Joyouth.org.gh@gmail.com',
+                to_email_2: 'manafnashiru55@gmail.com',
                 from_name: data.name,
                 from_email: data.email,
-                subject: 'New Volunteer Application',
-                message: `
-Name: ${data.name}
-Phone: ${data.phone}
-Email: ${data.email}
-Role: ${data.role}
-Availability: ${data.availability}
-Motivation: ${data.motivation}
-                `
+                phone: data.phone,
+                role: data.role,
+                availability: data.availability,
+                message: data.motivation
             }).then(() => {
-                alert('Application submitted successfully! Email sent to founder.');
-            }).catch(() => {
-                alert('Application submitted, but email failed. Please contact directly.');
+                // Store in localStorage
+                const members = JSON.parse(localStorage.getItem('joyouth_members') || '[]');
+                members.push(data);
+                localStorage.setItem('joyouth_members', JSON.stringify(members));
+
+                // Show success message
+                successMessage.classList.remove('hidden');
+
+                // Reset form
+                this.reset();
+                
+                // Reload members and highlight the new one
+                loadMembers(data.id);
+                
+                // Scroll to conference section
+                setTimeout(() => {
+                    document.getElementById('conference').scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+
+            }).catch((error) => {
+                console.error('EmailJS Error:', error);
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 5000);
             });
-
-            // Store in localStorage
-            const members = JSON.parse(localStorage.getItem('joyouth_members') || '[]');
-            members.push(data);
-            localStorage.setItem('joyouth_members', JSON.stringify(members));
-
-            // Reload members
-            loadMembers();
-
-            // Reset form
-            this.reset();
         });
 
         // Load members on page load
