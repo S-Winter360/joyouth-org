@@ -85,6 +85,38 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.076);
 }
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+    /* Ensure proper touch targets (minimum 44x44px) */
+    input, textarea, select, button {
+        min-height: 2.75rem;
+    }
+    
+    /* Improve button padding on small screens */
+    .h-12 {
+        min-height: 2.75rem;
+    }
+    
+    /* Better form spacing on mobile */
+    form {
+        gap: 1.25rem !important;
+    }
+}
+
+/* Improve text scaling for better readability */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Prevent zoom on input focus for iOS */
+input,
+select,
+textarea {
+    font-size: 16px !important;
+}
 </style>
 
 </head>
@@ -320,7 +352,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Large Feature Image -->
-                <div class="aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal">
+                <div class="sm:col-span-2 aspect-[4/3] rounded-2xl overflow-hidden relative group border border-white/[0.05] reveal">
                     <img src="https://i.pinimg.com/1200x/ff/85/41/ff85411d52ee81c3e5ea6570298af522.jpg" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Community Event">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
                     <div class="absolute bottom-6 left-6 right-6">
@@ -390,7 +422,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
             <!-- Conference Members -->
             <div class="mt-16">
                 <h3 class="text-2xl md:text-3xl tracking-tight font-normal text-white mb-8 text-center">Conference Members</h3>
-                <div id="conference-members-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="conference-members-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Members will be dynamically added here -->
                 </div>
             </div>
@@ -408,9 +440,9 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto">Your time and skills can drive real change. Join our dedicated team of volunteers and help us impact more lives.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
                 <!-- Roles -->
-                <div class="lg:col-span-2 space-y-4 reveal delay-100">
+                <div class="lg:col-span-1 space-y-4 reveal delay-100">
                     <h3 class="text-xl tracking-tight font-normal text-white mb-6">Open Roles</h3>
                     
                     <div class="p-5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-colors">
@@ -447,18 +479,30 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 </div>
 
                 <!-- Form -->
-                <div class="lg:col-span-3 reveal delay-200">
-                    <div id="success-message" class="hidden p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-                        <span class="font-medium">Success!</span> Your application has been submitted successfully.
+                <div class="lg:col-span-2 reveal delay-200">
+                <div id="success-message" class="hidden mb-4 p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 to-emerald-500/5 border border-emerald-500/50 backdrop-blur-sm" role="alert">
+                    <div class="flex items-start gap-3">
+                        <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-emerald-400 flex-shrink-0 mt-0.5"></iconify-icon>
+                        <div>
+                            <span class="font-semibold text-emerald-300 block">Success!</span>
+                            <span class="text-sm text-emerald-200/80">Your volunteer application has been submitted successfully. Thank you for joining our mission!</span>
+                        </div>
                     </div>
-                    <div id="error-message" class="hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-                        <span class="font-medium">Error!</span> There was a problem submitting your application. Please try again later.
+                </div>
+                <div id="error-message" class="hidden mb-4 p-4 rounded-xl bg-gradient-to-r from-red-500/10 to-red-500/5 border border-red-500/50 backdrop-blur-sm" role="alert">
+                    <div class="flex items-start gap-3">
+                        <iconify-icon icon="solar:close-circle-linear" class="text-2xl text-red-400 flex-shrink-0 mt-0.5"></iconify-icon>
+                        <div>
+                            <span class="font-semibold text-red-300 block">Error!</span>
+                            <span class="text-sm text-red-200/80">There was a problem submitting your application. Please check your connection and try again.</span>
+                        </div>
                     </div>
+                </div>
                     <form id="volunteer-form" class="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col gap-6 backdrop-blur-md relative overflow-hidden">
                         <!-- Decorative glow behind form -->
                         <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 blur-[50px] rounded-full pointer-events-none"></div>
 
-                        <div class="grid md:grid-cols-2 gap-6 relative z-10">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 relative z-10">
                             <div class="space-y-2">
                                 <label class="text-sm font-normal text-slate-400">Full Name</label>
                                 <input type="text" name="name" placeholder="John Doe" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all">
@@ -478,12 +522,12 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                             <label class="text-sm font-normal text-slate-400">Primary Skill / Interest</label>
                             <div class="relative">
                                 <select name="role" defaultValue="" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all cursor-pointer">
-                                    <option value="" disabled class="text-slate-500">Select an area of interest</option>
-                                    <option value="events" class="bg-slate-900">Event Coordination</option>
-                                    <option value="social" class="bg-slate-900">Social Media</option>
-                                    <option value="content" class="bg-slate-900">Content Creation</option>
-                                    <option value="outreach" class="bg-slate-900">Community Outreach</option>
-                                    <option value="other" class="bg-slate-900">Other Skills</option>
+                                    <option value="" disabled>Select an area of interest</option>
+                                    <option value="Event Coordination" class="bg-slate-900">Event Coordination</option>
+                                    <option value="Social Media" class="bg-slate-900">Social Media</option>
+                                    <option value="Content Creation" class="bg-slate-900">Content Creation</option>
+                                    <option value="Community Outreach" class="bg-slate-900">Community Outreach</option>
+                                    <option value="Other Skills" class="bg-slate-900">Other Skills</option>
                                 </select>
                                 <iconify-icon icon="solar:alt-arrow-down-linear" class="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-slate-400 pointer-events-none"></iconify-icon>
                             </div>
@@ -547,14 +591,14 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6 reveal delay-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 reveal delay-100">
                 <!-- Mobile Money -->
-                <div class="p-8 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/[0.08] hover:border-white/[0.15] transition-colors shadow-xl">
+                <div class="p-6 md:p-8 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/[0.08] hover:border-white/[0.15] transition-colors shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500">
                             <iconify-icon icon="solar:smartphone-linear" class="text-xl"></iconify-icon>
                         </div>
-                        <h3 class="text-xl tracking-tight font-normal text-white">Mobile Money</h3>
+                        <h3 class="text-lg md:text-xl tracking-tight font-normal text-white">Mobile Money</h3>
                     </div>
                     
                     <div class="space-y-4">
@@ -577,7 +621,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                         <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
                             <iconify-icon icon="solar:buildings-linear" class="text-xl"></iconify-icon>
                         </div>
-                        <h3 class="text-xl tracking-tight font-normal text-white">Bank Transfer</h3>
+                        <h3 class="text-lg md:text-xl tracking-tight font-normal text-white">Bank Transfer</h3>
                     </div>
 
                     <div class="space-y-4">
@@ -715,7 +759,19 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
         revealElements.forEach(el => revealObserver.observe(el));
 
         // Initialize EmailJS
-        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key from https://www.emailjs.com/
+        // Get your Public Key from: https://www.emailjs.com/docs/rest-api/
+        // Set your public key below (default is shown for reference):
+        emailjs.init('YOUR_PUBLIC_KEY'); 
+        
+        // Configuration Instructions:
+        // 1. Sign up at https://www.emailjs.com (free tier available)
+        // 2. Create an email service (e.g., Gmail, Outlook)
+        // 3. Get your SERVICE_ID from the Services section
+        // 4. Create an email template with variables:
+        //    - {{from_name}}, {{from_email}}, {{phone}}, {{role}}, {{availability}}, {{message}}
+        // 5. Get your TEMPLATE_ID from the Templates section
+        // 6. Copy your Public Key from Account > API Keys
+        // 7. Replace 'YOUR_PUBLIC_KEY', 'YOUR_SERVICE_ID', and 'YOUR_TEMPLATE_ID' below
 
         // Load and display members
         function loadMembers(highlightId) {
@@ -732,37 +788,78 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
             };
 
             members.forEach(member => {
-                if (roles[member.role]) {
-                    roles[member.role].push(member);
+                // Normalize role name
+                const normalizedRole = Object.keys(roles).find(r => r === member.role) || member.role;
+                if (roles[normalizedRole]) {
+                    roles[normalizedRole].push(member);
                 }
             });
+
+            // Check if there are any members
+            if (members.length === 0) {
+                container.innerHTML = '<p class="text-slate-400 text-center col-span-full py-12">No members yet. Be the first to join our volunteer team!</p>';
+                return;
+            }
 
             Object.keys(roles).forEach(role => {
                 if (roles[role].length > 0) {
                     const roleDiv = document.createElement('div');
-                    roleDiv.className = 'role-container col-span-full mb-8';
-                    let membersHtml = roles[role].map(member => `
-                                <div id="${member.id}" class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 ${highlightId === member.id ? 'new-member-highlight' : ''}">
-                                    <div class="flex items-center gap-4 mb-4">
-                                        <div class="w-12 h-12 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                                            <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
-                                        </div>
-                                        <div>
-                                            <h5 class="text-lg font-normal text-white">${member.name}</h5>
-                                            <p class="text-sm text-slate-400">${member.role}</p>
-                                        </div>
+                    roleDiv.className = 'col-span-full';
+                    
+                    const colorMap = {
+                        "Event Coordination": "indigo",
+                        "Social Media": "purple",
+                        "Content Creation": "pink",
+                        "Community Outreach": "emerald",
+                        "Other Skills": "amber"
+                    };
+
+                    const roleColor = colorMap[role] || "indigo";
+                    
+                    let membersHtml = roles[role].map(member => {
+                        const colorClasses = {
+                            "indigo": "border-indigo-500/30 hover:border-indigo-500/50",
+                            "purple": "border-purple-500/30 hover:border-purple-500/50",
+                            "pink": "border-pink-500/30 hover:border-pink-500/50",
+                            "emerald": "border-emerald-500/30 hover:border-emerald-500/50",
+                            "amber": "border-amber-500/30 hover:border-amber-500/50"
+                        };
+
+                        return `
+                            <div id="${member.id}" class="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] ${colorClasses[roleColor]} transition-all duration-300 hover:shadow-lg hover:shadow-${roleColor}-500/20 ${highlightId === member.id ? 'new-member-highlight' : ''}">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-${roleColor}-500/10 flex items-center justify-center text-${roleColor}-400 flex-shrink-0">
+                                        <iconify-icon icon="solar:user-linear" class="text-xl"></iconify-icon>
                                     </div>
-                                    <div class="space-y-2">
-                                        <p class="text-sm text-slate-500"><iconify-icon icon="solar:phone-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.phone}</p>
-                                        <p class="text-sm text-slate-500"><iconify-icon icon="solar:letter-linear" class="text-indigo-400 mr-2"></iconify-icon>${member.email}</p>
+                                    <div class="min-w-0">
+                                        <h5 class="text-base md:text-lg font-normal text-white truncate">${member.name}</h5>
+                                        <p class="text-xs md:text-sm text-slate-400 truncate">${member.role}</p>
                                     </div>
                                 </div>
-                            `).join('');
+                                <div class="space-y-2 text-xs md:text-sm">
+                                    <p class="text-slate-500 flex items-center gap-2 truncate">
+                                        <iconify-icon icon="solar:phone-linear" class="text-${roleColor}-400 flex-shrink-0"></iconify-icon>
+                                        <span class="truncate">${member.phone}</span>
+                                    </p>
+                                    <p class="text-slate-500 flex items-center gap-2 truncate">
+                                        <iconify-icon icon="solar:letter-linear" class="text-${roleColor}-400 flex-shrink-0"></iconify-icon>
+                                        <span class="truncate">${member.email}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
                     
                     roleDiv.innerHTML = `
-                        <h4 class="text-xl tracking-tight font-normal text-white mb-4">${role}</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            ${membersHtml}
+                        <div class="mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-1 h-6 bg-gradient-to-b from-${roleColor}-500 to-${roleColor}-500/30 rounded-full"></div>
+                                <h4 class="text-base md:text-lg tracking-tight font-normal text-white">${role}</h4>
+                                <span class="text-xs text-slate-500 bg-white/5 px-2.5 py-1 rounded-full">${roles[role].length} member${roles[role].length !== 1 ? 's' : ''}</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                ${membersHtml}
+                            </div>
                         </div>
                     `;
                     container.appendChild(roleDiv);
@@ -774,7 +871,7 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 if (newCard) {
                     setTimeout(() => {
                         newCard.classList.remove('new-member-highlight');
-                    }, 3000); // Highlight for 3 seconds
+                    }, 3000);
                 }
             }
         }
@@ -783,18 +880,40 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
         document.getElementById('volunteer-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<iconify-icon icon="solar:refresh-linear" class="text-lg animate-spin mr-2"></iconify-icon>Submitting...';
+            
             const formData = new FormData(this);
+            const roleSelect = this.querySelector('select[name="role"]');
+            const roleText = roleSelect.options[roleSelect.selectedIndex].text;
+            
             const data = {
-                id: `member-${new Date().getTime()}`, // Unique ID for highlighting
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                email: formData.get('email'),
-                role: this.querySelector('select').options[this.querySelector('select').selectedIndex].text,
-                availability: Array.from(this.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.nextElementSibling.textContent).join(', '),
-                motivation: formData.get('motivation')
+                id: `member-${Date.now()}`,
+                name: formData.get('name').trim(),
+                phone: formData.get('phone').trim(),
+                email: formData.get('email').trim(),
+                role: roleText,
+                availability: Array.from(this.querySelectorAll('input[type="checkbox"]:checked')).map(cb => {
+                    return cb.parentElement.querySelector('span').textContent.trim();
+                }).join(', ') || 'Not specified',
+                motivation: formData.get('motivation').trim()
             };
 
-            const successMessage = document.getElementById('success-message');
+            // Validate form data
+            if (!data.name || !data.phone || !data.email || !data.role) {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.querySelector('span:last-child').textContent = 'Please fill in all required fields.';
+                errorMessage.classList.remove('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                return;
+            }
 
             // Send email
             emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
@@ -813,37 +932,70 @@ background: linear-gradient(to top, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.5) 40
                 localStorage.setItem('joyouth_members', JSON.stringify(members));
 
                 // Show success message
+                const successMessage = document.getElementById('success-message');
                 successMessage.classList.remove('hidden');
 
                 // Reset form
-                this.reset();
+                form.reset();
                 
                 // Reload members and highlight the new one
                 loadMembers(data.id);
                 
-                // Scroll to conference section
+                // Scroll to conference section after a brief delay
                 setTimeout(() => {
-                    document.getElementById('conference').scrollIntoView({ behavior: 'smooth' });
-                }, 100);
+                    const conferenceSection = document.getElementById('conference');
+                    conferenceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 200);
 
-
-                // Hide success message after 5 seconds
+                // Hide success message after 6 seconds
                 setTimeout(() => {
                     successMessage.classList.add('hidden');
-                }, 5000);
+                }, 6000);
+
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
 
             }).catch((error) => {
                 console.error('EmailJS Error:', error);
                 const errorMessage = document.getElementById('error-message');
+                
+                // Check if it's a config error (missing keys)
+                if (error.text === 'Invalid service ID' || error.text === 'Invalid template ID') {
+                    errorMessage.querySelector('span:last-child').innerHTML = `
+                        <strong>Setup Required:</strong> Please configure EmailJS:
+                        <ol class="list-decimal list-inside mt-1 ml-1">
+                            <li>Visit <a href="https://www.emailjs.com" target="_blank" class="underline">emailjs.com</a></li>
+                            <li>Get your Public Key, Service ID, and Template ID</li>
+                            <li>Replace the placeholders in the volunteer form section</li>
+                        </ol>
+                    `;
+                } else {
+                    errorMessage.querySelector('span:last-child').textContent = 'There was a problem submitting your application. Please try again later.';
+                }
+                
                 errorMessage.classList.remove('hidden');
-                setTimeout(() => {
-                    errorMessage.classList.add('hidden');
-                }, 5000);
+                setTimeout(() => errorMessage.classList.add('hidden'), 6000);
+                
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
             });
         });
 
         // Load members on page load
-        loadMembers();
+        window.addEventListener('DOMContentLoaded', () => {
+            loadMembers();
+        });
+
+        // Prevent form from scrolling on mobile when focused
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('focus', function() {
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            });
+        });
     </script>
 
 </body></html>
